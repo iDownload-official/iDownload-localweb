@@ -121,7 +121,7 @@ homepage = """<!DOCTYPE html>
             };
 
             async function startYTDownload() {
-                repeatFunction1 = setInterval(updateStatus, 250);
+                repeatFunction1 = setInterval(updateStatus, 1000);
                 inputURL = document.querySelector(".url-input").value;
                 inputID = inputURL.split("=")[1];
                 endpointURL = ["/ytdownload/", inputID, "/1080"].join("")
