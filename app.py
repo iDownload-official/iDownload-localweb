@@ -219,7 +219,7 @@ def downloadBBCVideo(bbcurl, quality):
     else:
         tvquality = "fhd"
 
-    cmd = "/usr/local/bin/get_iplayer " + bbcurl + " --tvquality " + tvquality + " --force " + f"--output {script_dir}/"
+    cmd = "/usr/local/bin/get_iplayer " + bbcurl + " --overwrite --tvquality " + tvquality + " --force " + f"--output {script_dir}/"
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, bufsize=1, text=True, shell=True)
 
     for line in p.stdout:
