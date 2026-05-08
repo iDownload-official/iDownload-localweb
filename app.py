@@ -226,7 +226,7 @@ def downloadBBCVideo(bbcurl, quality):
         message = line
         if message.startswith("INFO: Processing tv: "):
             currentEpisodeName = message.replace("INFO: Processing tv: ", "").replace("'", "").replace("(", "").replace(")", "").replace(":", "")
-        if "Tagging MP4" in message or "Skipping all versions" in message:
+        if "Tagging MP4" in message or "Skipping all versions" in message or "Tagging M4A" in message:
             time.sleep(2)
             isDownloading = False
 
