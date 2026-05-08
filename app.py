@@ -239,7 +239,10 @@ def downloadBBCVideo(bbcurl, quality):
                 if "fileprefix:" in line:
                     filePrefix = line.replace("fileprefix:      ", "").replace("\n", "")
 
-            finalFile = filePrefix + ".mp4"
+            if "Tagging MP4" in message:
+                finalFile = filePrefix + ".mp4"
+            elif "Tagging M4A" in message:
+                finalFile = filePrefix + ".m4a"
             print(finalFile)
 
 app = Flask(__name__)
