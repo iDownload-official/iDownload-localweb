@@ -230,6 +230,11 @@ def downloadBBCVideo(bbcurl, quality):
             time.sleep(2)
             isDownloading = False
 
+            if "Tagging MP4" in message:
+                fileType = "mp4"
+            elif "Tagging M4A" in message:
+                fileType = "m4a"
+
             message = "INFO: Fetching file prefix"
             
             cmd = '/usr/local/bin/get_iplayer --url="' + bbcurl + '" --info'
@@ -239,9 +244,9 @@ def downloadBBCVideo(bbcurl, quality):
                 if "fileprefix:" in line:
                     filePrefix = line.replace("fileprefix:      ", "").replace("\n", "")
 
-            if "Tagging MP4" in message:
+            if fileType == "mp4":
                 finalFile = filePrefix + ".mp4"
-            elif "Tagging M4A" in message:
+            elif fileType == "m4a":
                 finalFile = filePrefix + ".m4a"
             print(finalFile)
 
